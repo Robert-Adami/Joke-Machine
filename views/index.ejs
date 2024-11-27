@@ -11,11 +11,18 @@
     <main>
         <h1>Joke Machine</h1>
         <div class="container">
-            <p><%= setup %></p>
-            <p><%= delivery %></p> <!---Chceme to tak aby sa dal button klikom revealnut delivery-->
-            <form id="myForm" method="get">
-                <button class="btn btn-primary" type="submit">Press to generate another joke</button>
+            <form method="post" action="/get-joke">
+                <label for="jokes">Choose a joke type:</label>
+                <select name="jokeType" id="jokes">
+                    <option value="Programming">Programming</option>
+                    <option value="Pun">Pun</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                </select>
+                <button class="btn btn-primary" type="submit">Submit</button>
             </form>
+            <% if (joke) { %>
+                <p>Here is your joke : <%= joke %></p>  
+           <% } %>
         </div>
     </main>
     <footer>Created by Robert Adami</footer>
